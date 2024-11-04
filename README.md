@@ -1,5 +1,6 @@
 WELCOME TO THE KINGDOM CODE
--This repository is focused in a university project for the course of Dinamic Data Structure
+
+This repository is focused in a university project for the course of Dinamic Data Structure
 
 A family from a kingdom has been keeping track of the descendants of the first king for years. Each king has only generated a maximum of two heirs throughout his reign, always being the firstborn to inherit the throne, with cases where if the entire branch of the current king disappears then the first firstborn of the branch of his brother.
 
