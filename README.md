@@ -15,3 +15,7 @@ REQUIREMENTS
     If all the firstborn are dead, follow the same rules for the second children, starting from the first found from the first king.
     If a king passed the age of 70, the crown is passed to the first living firstborn of his tree.
 - Change the data of any node in the tree, except the id and id of the parent.
+
+COPY AND PASTE THIS COMMANDS FOR EXECUTE THE CODE
+g++ -o ../bin/main main.cpp
+../bin/mi_programa.exe
