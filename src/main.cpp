@@ -77,3 +77,9 @@ Node<T>::Node(T data,Node<T>* left,Node<T>* rigth){
         this->right = rigth;
     }
 }
+
+template<class T>
+Node<T>::~Node(){
+    this->left = nullptr;
+    this->right = nullptr;
+}
