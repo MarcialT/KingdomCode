@@ -7,8 +7,8 @@ template<class T>
 class Node{
     private:
     T data;
-    Node<T>* next = nullptr;
-    Node<T>* prev = nullptr;
+    Node<T>* left = nullptr;
+    Node<T>* right = nullptr;
     public:
     Node(T,Node<T>*,Node<T>*);
     ~Node();
@@ -66,4 +66,14 @@ void Menu(int option){
             break;
         }
         }
+}
+
+template<class T>
+Node<T>::Node(T data,Node<T>* left,Node<T>* rigth){
+    if(left != NULL){
+        this->left = left;
+    }
+    if(right != NULL){
+        this->right = rigth;
+    }
 }
