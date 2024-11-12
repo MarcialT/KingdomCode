@@ -13,7 +13,7 @@ class Node{
     Node(T,Node<T>*,Node<T>*);
     ~Node();
     T getData();
-    void setData(Node<T>*);
+    void setData(T);
     Node<T>* getNext();
     void setNext(Node<T>*);
     Node<T>* getPrev();
@@ -87,4 +87,9 @@ Node<T>::~Node(){
 template<class T>
 T Node<T>::getData(){
     return this->data;
+}
+
+template<class T>
+void Node<T>::setData(T data){
+    this->data = data;
 }
