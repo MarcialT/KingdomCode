@@ -83,3 +83,8 @@ Node<T>::~Node(){
     this->left = nullptr;
     this->right = nullptr;
 }
+
+template<class T>
+T Node<T>::getData(){
+    return this->data;
+}
