@@ -14,10 +14,6 @@ class Node{
     ~Node();
     T getData();
     void setData(T);
-    Node<T>* getNext();
-    void setNext(Node<T>*);
-    Node<T>* getPrev();
-    void setPrev(Node<T>*);
     void print();
 };
 
