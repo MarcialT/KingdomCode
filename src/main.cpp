@@ -51,6 +51,58 @@ public:
     }
 };
 
+class FamilyTree {
+public:
+    Persona* head;
+    Persona* last;
+
+    FamilyTree() : head(nullptr), last(nullptr) {}
+
+    void addPerson(Persona* newPerson) {
+        if (head == nullptr) {
+            head = newPerson;
+            last = newPerson;
+        } else {
+            last->Siguiente = newPerson;
+            last = newPerson;
+        }
+    }
+
+    Persona* findPersonById(int id) {
+        Persona* temp = head;
+        while (temp != nullptr) {
+            if (temp->id == id) {
+                return temp;
+            }
+            temp = temp->Siguiente;
+        }
+        return nullptr;
+    }
+
+    bool isFirstborn(int childId, int& fatherId) {
+        Persona* child = findPersonById(childId);
+        if (child == nullptr) {
+            return false;
+        }
+
+        fatherId = child->id_father;
+        if (fatherId == 0) {
+            return false;
+        }
+
+        Persona* temp = head;
+        while (temp != nullptr) {
+            if (temp->id_father == fatherId && temp->id != childId) {
+                if (temp->age > child->age) {
+                    return false;
+                }
+            }
+            temp = temp->Siguiente;
+        }
+        return true;
+    }
+};
+
 Persona* head = nullptr;
 void Menu(int option);
 void leerCSV (string KingDom);
@@ -74,6 +126,7 @@ void Menu(int option){
     switch (option)
         {
         case 1:
+        leerCSV("KingDom.csv");
             cout<<"Se han convertido los datos en un arbol binario"<<endl;
             break;
         
@@ -125,56 +178,45 @@ template<class T>
 void Node<T>::setData(T data){
     this->data = data;
 }
-void leerCsv (string KingDom){
-    ifstream archivo("KingDom.csv");
-    if (!archivo.is_open()){
-        cout<<"No se pudo abrir el archivo"<<endl;
-        return;
-    }
+void leerCSV(string KingDom) {
+    FamilyTree tree;
+
+    ifstream archivo(KingDom);
     string linea;
-    getline(archivo, linea);
-
-    Persona* ultimo = nullptr;
-    while(getline(archivo, linea)){
+    getline(archivo, linea); // Saltar la primera línea (encabezados)
+    while (getline(archivo, linea)) {
         stringstream ss(linea);
-        string dato;
         string campo[9];
-        int i= 0;
-
-        while(getline(ss, dato, ',')){
-            campo[i++] = dato;
+        for (int i = 0; i < 9; ++i) {
+            getline(ss, campo[i], ',');
         }
 
-        if (campo[3] == "Male"){
-            campo[3] == "H";
-        } 
-        else if(campo[3] == "Female"){
-            campo[3] == "M";
-        }
-
-        Persona* nuevaPersona = new Persona{
+        Persona* nuevaPersona = new Persona(
             stoi(campo[0]),
             campo[1],
             campo[2],
             campo[3],
             stoi(campo[4]),
             stoi(campo[5]),
-            stoi (campo[6]),
-            stoi (campo[7]),
-            stoi (campo[8]),
-    };
+            stoi(campo[6]),
+            stoi(campo[7]),
+            stoi(campo[8])
+        );
 
-    if (head == nullptr){
-        head = nuevaPersona;
-        ultimo = nuevaPersona;
-    }
-    else {
-        ultimo->Siguiente = nuevaPersona;
-        ultimo = nuevaPersona;
-    }
+        tree.addPerson(nuevaPersona);
     }
 
     archivo.close();
-           
-    
+
+    int id;
+    cout << "Ingrese el ID de la persona: ";
+    cin >> id;
+
+    int fatherId;
+    if (tree.isFirstborn(id, fatherId)) {
+        Persona* father = tree.findPersonById(fatherId);
+        cout << "La persona con ID " << id << " es el primogénito de " << father->first_name << " " << father->last_name << "." << endl;
+    } else {
+        cout << "La persona con ID " << id << " no es el primogénito de nadie o no tiene padre registrado." << endl;
+    }
 }
