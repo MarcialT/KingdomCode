@@ -28,4 +28,6 @@ To get a local copy up and running follow these simple steps:
 3. Copy and paste this command in the terminal for compile "g++ main.cpp -o ../bin/main.exe"
 4. Copy and paste this command in the terminal for run "../bin/main.exe".
 
+## License
 
+[MIT](https://choosealicense.com/licenses/mit/)
