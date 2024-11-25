@@ -121,7 +121,7 @@ int main() {
 }
 
 void Menu(int option) {
-    cout << "Bienvenido al reino!!!\nQue desea hacer hoy?" << endl;
+    cout << "\nBienvenido al reino!!!\nQue desea hacer hoy?" << endl;
     while (option != 5) {
         cout << "1.-Convertir los datos en un arbol binario" << endl
              << "2.-Mostrar la linea de sucesion actual" << endl
