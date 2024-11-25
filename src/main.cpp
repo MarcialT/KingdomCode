@@ -5,20 +5,6 @@
 
 using namespace std;
 
-template<class T>
-class Node {
-private:
-    T data;
-    Node<T>* left = nullptr;
-    Node<T>* right = nullptr;
-public:
-    Node(T, Node<T>*, Node<T>*);
-    ~Node();
-    T getData();
-    void setData(T);
-    void print();
-};
-
 class Persona {
 public:
     int id;
@@ -160,32 +146,6 @@ void Menu(int option) {
                 break;
         }
     }
-}
-
-template<class T>
-Node<T>::Node(T data, Node<T>* left, Node<T>* right) {
-    if (left != NULL) {
-        this->left = left;
-    }
-    if (right != NULL) {
-        this->right = right;
-    }
-}
-
-template<class T>
-Node<T>::~Node() {
-    this->left = nullptr;
-    this->right = nullptr;
-}
-
-template<class T>
-T Node<T>::getData() {
-    return this->data;
-}
-
-template<class T>
-void Node<T>::setData(T data) {
-    this->data = data;
 }
 
 void leerCSV(string KingDom) {
