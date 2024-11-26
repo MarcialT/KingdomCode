@@ -6,7 +6,7 @@ template<class T>
 Node<T>::Node(T data, Node<T>* left,Node<T>* right){
     this->data = data;
     this->left = left;
-    this->right = right
+    this->right = right;
 }
 
 template<class T>
