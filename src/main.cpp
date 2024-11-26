@@ -3,40 +3,9 @@
 #include<string>
 #include<sstream>
 #include"./node/node.cpp"
-
+#include"./people/people.cpp"
+#include"./util/util.cpp"
 using namespace std;
-
-class Persona {
-public:
-    int id;
-    string first_name;
-    string last_name;
-    string gender;
-    int age;
-    int id_father;
-    bool is_dead;
-    bool was_king;
-    bool is_king;
-
-    Persona* primogenito;
-    Persona* segundoHijo;
-    Persona* Siguiente;
-
-    Persona(int _id, string _first_name, string _last_name, string _gender, int _age, int _id_father, bool _is_dead, bool _was_king, bool _is_king) {
-        id = _id;
-        first_name = _first_name;
-        last_name = _last_name;
-        gender = _gender;
-        age = _age;
-        id_father = _id_father;
-        is_dead = _is_dead;
-        was_king = _was_king;
-        is_king = _is_king;
-        primogenito = nullptr;
-        segundoHijo = nullptr;
-        Siguiente = nullptr;
-    }
-};
 
 class FamilyTree {
 public:
@@ -91,8 +60,6 @@ public:
 };
 
 Persona* head = nullptr;
-void Menu(int option);
-void leerCSV(string KingDom);
 void findChildrenById(string csvFile, int parentId);
 
 int main() {
