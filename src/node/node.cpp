@@ -24,3 +24,9 @@ template<class T>
 void Node<T>::setData(T data) {
     this->data = data;
 }
+
+template<class T>
+void Node<T>::setChildren(Node<T>* left, Node<T>* right){
+    this->left = left;
+    this->right = right;
+}
