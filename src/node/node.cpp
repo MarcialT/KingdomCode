@@ -30,3 +30,13 @@ void Node<T>::setChildren(Node<T>* left, Node<T>* right){
     this->left = left;
     this->right = right;
 }
+
+template<class T>
+void Node<T>::setFe(int fe){
+    this->fe = fe;
+}
+
+template<class T>
+int Node<T>::getFe(){
+    return this->fe;
+}
