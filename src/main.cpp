@@ -5,61 +5,9 @@
 #include"./node/node.cpp"
 #include"./people/people.cpp"
 #include"./util/util.cpp"
+#include"./tree/tree.cpp"
 using namespace std;
 
-class FamilyTree {
-public:
-    Persona* head;
-    Persona* last;
-
-    FamilyTree() : head(nullptr), last(nullptr) {}
-
-    void addPerson(Persona* newPerson) {
-        if (head == nullptr) {
-            head = newPerson;
-            last = newPerson;
-        } else {
-            last->Siguiente = newPerson;
-            last = newPerson;
-        }
-    }
-
-    Persona* findPersonById(int id) {
-        Persona* temp = head;
-        while (temp != nullptr) {
-            if (temp->id == id) {
-                return temp;
-            }
-            temp = temp->Siguiente;
-        }
-        return nullptr;
-    }
-
-    bool isFirstborn(int childId, int& fatherId) {
-        Persona* child = findPersonById(childId);
-        if (child == nullptr) {
-            return false;
-        }
-
-        fatherId = child->id_father;
-        if (fatherId == 0) {
-            return false;
-        }
-
-        Persona* temp = head;
-        while (temp != nullptr) {
-            if (temp->id_father == fatherId && temp->id != childId) {
-                if (temp->age > child->age) {
-                    return false;
-                }
-            }
-            temp = temp->Siguiente;
-        }
-        return true;
-    }
-};
-
-Persona* head = nullptr;
 void findChildrenById(string csvFile, int parentId);
 
 int main() {
@@ -81,7 +29,7 @@ void findChildrenById(string csvFile, int parentId) {
         return;
     }
 
-    FamilyTree tree;
+    Tree tree;
     string line;
     getline(file, line); // Saltar la primera línea (encabezados)
 
