@@ -16,7 +16,6 @@ public:
         T getData();
         void setChildren(Node<T>*,Node<T>*);//Establece el hijo de un nodo
         Node<T>* getChildren(int);//facilita el hijo de un nodo
-        void print();
         void setFe(int);//permite establecer el factor de equilibrio
         int getFe();//obtiene el factor de equilibrio
         void setHeigth(int);//establece la altura del arbol
