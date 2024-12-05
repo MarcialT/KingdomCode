@@ -2,10 +2,10 @@
 #include<fstream>
 #include<string>
 #include<sstream>
-#include"./node/node.h"
-#include"./people/people.h"
-#include"./util/util.h"
-#include"./tree/tree.h"
+#include"./node/node.cpp"
+#include"./people/people.cpp"
+#include"./util/util.cpp"
+#include"./tree/tree.cpp"
 using namespace std;
 
 int main() {

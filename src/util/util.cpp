@@ -3,8 +3,8 @@
 #include"sstream"
 #include<string>
 #include"util.h"
-#include"../tree/tree.h"
-#include"../people/people.h"
+#include"../tree/tree.cpp"
+#include"../people/people.cpp"
 using namespace std;
 
 void Menu(int option) {
