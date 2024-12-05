@@ -3,11 +3,12 @@
 #include"sstream"
 #include<string>
 #include"util.h"
-#include"../tree/tree.cpp"
-#include"../people/people.cpp"
+#include"../tree/tree.h"
+#include"../people/people.h"
 using namespace std;
 
-void Menu(int option) {
+void Menu() {
+    int option = 0;
     cout << "\nBienvenido al reino!!!\nQue desea hacer hoy?" << endl;
     while (option != 5) {
         cout << "1.-Convertir los datos en un arbol binario" << endl
@@ -94,10 +95,6 @@ void leerCSV(string KingDom) {
 
 void findChildrenById(string csvFile, int parentId) {
     ifstream file(csvFile);
-    if (!file.is_open()) {
-        cout << "Error al abrir el archivo " << csvFile << endl;
-        return;
-    }
 
     Tree tree;
     string line;

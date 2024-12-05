@@ -9,13 +9,6 @@
 using namespace std;
 
 int main() {
-    int option = 0;
-    Menu(option);
-
-    int parentId;
-    cout << "Ingrese el ID del padre para buscar sus hijos: ";
-    cin >> parentId;
-    findChildrenById("../bin/KingDom.csv", parentId);
-
+    Menu();
     return 0;
 }
