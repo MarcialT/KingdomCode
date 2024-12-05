@@ -1,6 +1,8 @@
 #ifndef TREE_H
 #define TREE_H
-#include"../people/people.h"
+#include"../people/people.cpp"
+#include"../node/node.cpp"
+template<class T>
 class Tree {
     public:
     Persona* head = nullptr;

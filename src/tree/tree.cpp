@@ -1,13 +1,13 @@
 #include<iostream>
 #include"./tree.h"
 using namespace std;
-
-Tree::Tree(){
+template<class T>
+Tree<T>::Tree(){
     this->head = nullptr;
     this->last = nullptr;
 }
-
-void Tree::addPerson(Persona* newPerson) {
+template<class T>
+void Tree<T>::addPerson(Persona* newPerson) {
         if (head == nullptr) {
             head = newPerson;
             last = newPerson;
@@ -16,8 +16,8 @@ void Tree::addPerson(Persona* newPerson) {
             last = newPerson;
         }
     }
-
-    Persona* Tree::findPersonById(int id) {
+template<class T>
+    Persona* Tree<T>::findPersonById(int id) {
         Persona* temp = head;
         while (temp != nullptr) {
             if (temp->id == id) {
@@ -27,8 +27,8 @@ void Tree::addPerson(Persona* newPerson) {
         }
         return nullptr;
     }
-
-    bool Tree::isFirstborn(int childId, int& fatherId) {
+template<class T>
+    bool Tree<T>::isFirstborn(int childId, int& fatherId) {
         Persona* child = findPersonById(childId);
         if (child == nullptr) {
             return false;
