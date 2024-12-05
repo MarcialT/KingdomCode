@@ -1,6 +1,10 @@
 #include<iostream>
 #include<fstream>
+#include"sstream"
+#include<string>
 #include"util.h"
+#include"../tree/tree.h"
+#include"../people/people.h"
 using namespace std;
 
 void Menu(int option) {
@@ -46,7 +50,7 @@ void Menu(int option) {
 }
 
 void leerCSV(string KingDom) {
-    FamilyTree tree;
+    Tree tree;
 
     ifstream archivo(KingDom);
     string linea;
