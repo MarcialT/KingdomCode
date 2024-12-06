@@ -5,19 +5,17 @@
 template<class T>
 class Tree {
     private:
-    Node<T>* root = nullptr;
-    public:
-    Tree();
-    Node<T>* getRoot();
-    void Insert(Persona*,Persona*);
-    void showSuccession(Persona* Node);
+    Persona* root;
+    void showSuccession(Persona* node);
     Persona* assignNewKing(Persona* currentKing);
     Persona* findPersonById(Persona* node, int id);
-    void readCSV(const string& filename);
+    public:
+    Tree();
+    void readCSV();
     void showSuccession();
-    void assignKing(); 
+    void assignKing();
     void updatePersonData(int id, const string& new_name, const string& new_last_name, int new_age);
     ~Tree();
+    void insert(Persona* node, Persona* new_person);
 };
-
 #endif

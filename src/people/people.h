@@ -17,7 +17,7 @@ class Persona {
     Persona* primogenito;
     Persona* segundoHijo;
     Persona* Siguiente;
-    Persona(int _id, string _first_name, string _last_name, string _gender, int _age, int _id_father, bool _is_dead, bool _was_king, bool _is_king);
+    Persona(int _id, string _first_name, string _last_name, char _gender, int _age, int _id_father, bool _is_dead, bool _was_king, bool _is_king);
 };
 
 #endif

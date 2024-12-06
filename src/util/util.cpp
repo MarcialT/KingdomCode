@@ -10,7 +10,7 @@ using namespace std;
 void Menu() {
     int option = 0;
     Tree<Persona> tree; // Instancia del árbol
-    tree.readCSV("KingDom.csv"); // Lee los datos del CSV y construye el árbol
+    tree.readCSV(); // Lee los datos del CSV y construye el árbol
 
     cout << "\nBienvenido al reino!!!\nQue desea hacer hoy?" << endl;
     while (option != 5) {
@@ -22,13 +22,13 @@ void Menu() {
         cin >> option;
         switch (option) {
             case 1:
-                tree.readCSV("KingDom.csv");
+                tree.readCSV();
                 cout << "Se han convertido los datos en un arbol binario" << endl;
                 break;
 
             case 2:
                 cout << "La linea de sucesion actual es:\n" << endl;
-                tree.showSuccession(tree.getRoot());
+                tree.showSuccession();
                 break;
 
             case 3:
