@@ -71,3 +71,13 @@ bool Node<T>::isLeaf(){
     return this->right==NULL && this->left==NULL;
 }
 
+
+template<class T>
+Node<T>* Node<T>::getleft(){
+    return this->left;
+}
+
+template<class T>
+Node<T>* Node<T>::getrigth(){
+    return this->right;
+}

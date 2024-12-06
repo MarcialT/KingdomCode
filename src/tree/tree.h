@@ -8,7 +8,16 @@ class Tree {
     Node<T>* root = nullptr;
     public:
     Tree();
-    void TreeInsert(T);
+    Node<T>* getRoot();
+    void Insert(Persona*,Persona*);
+    void showSuccession(Persona* Node);
+    Persona* assignNewKing(Persona* currentKing);
+    Persona* findPersonById(Persona* node, int id);
+    void readCSV(const string& filename);
+    void showSuccession();
+    void assignKing(); 
+    void updatePersonData(int id, const string& new_name, const string& new_last_name, int new_age);
+    ~Tree();
 };
 
 #endif

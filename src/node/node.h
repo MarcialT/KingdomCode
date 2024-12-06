@@ -15,6 +15,8 @@ public:
         ~Node();
         void setData(T);
         T getData();
+        Node<T>* getleft();
+        Node<T>* getrigth();
         void setChildren(Node<T>*,Node<T>*);//Establece el hijo de un nodo
         Node<T>* getChildren(int);//facilita el hijo de un nodo
         void setFe(int);//permite establecer el factor de equilibrio

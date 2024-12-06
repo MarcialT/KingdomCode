@@ -1,6 +1,6 @@
 #include<iostream>
 #include<fstream>
-#include"sstream"
+#include<sstream>
 #include<string>
 #include"./util.h"
 #include"../tree/tree.h"
@@ -9,6 +9,9 @@ using namespace std;
 
 void Menu() {
     int option = 0;
+    Tree<Persona> tree; // Instancia del árbol
+    tree.readCSV("KingDom.csv"); // Lee los datos del CSV y construye el árbol
+
     cout << "\nBienvenido al reino!!!\nQue desea hacer hoy?" << endl;
     while (option != 5) {
         cout << "1.-Convertir los datos en un arbol binario" << endl
@@ -19,16 +22,13 @@ void Menu() {
         cin >> option;
         switch (option) {
             case 1:
-               
+                tree.readCSV("KingDom.csv");
                 cout << "Se han convertido los datos en un arbol binario" << endl;
                 break;
 
             case 2:
-                int parentId;
-                cout << "Ingrese el ID del padre: ";
-                cin >> parentId;
-                
                 cout << "La linea de sucesion actual es:\n" << endl;
+                tree.showSuccession(tree.getRoot());
                 break;
 
             case 3:
