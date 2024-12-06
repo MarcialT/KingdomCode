@@ -4,13 +4,11 @@
 #include"../node/node.cpp"
 template<class T>
 class Tree {
+    private:
+    Node<T>* root = nullptr;
     public:
-    Persona* head = nullptr;
-    Persona* last = nullptr;
     Tree();
-    void addPerson(Persona* newPerson);
-    Persona* findPersonById(int id);
-    bool isFirstborn(int childId, int& fatherId);
+    void TreeInsert(T);
 };
 
 #endif

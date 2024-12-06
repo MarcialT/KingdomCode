@@ -1,52 +1,43 @@
 #include<iostream>
+#include<fstream>
+#include<string>
 #include"./tree.h"
 using namespace std;
+
 template<class T>
 Tree<T>::Tree(){
-    this->head = nullptr;
-    this->last = nullptr;
+    
 }
+
 template<class T>
-void Tree<T>::addPerson(Persona* newPerson) {
-        if (head == nullptr) {
-            head = newPerson;
-            last = newPerson;
-        } else {
-            last->Siguiente = newPerson;
-            last = newPerson;
-        }
+void Tree<T>::TreeInsert(T data){
+    
+    if(root==NULL){
+
+        root=new Node<T>(data,NULL,NULL);
+
     }
-template<class T>
-    Persona* Tree<T>::findPersonById(int id) {
-        Persona* temp = head;
-        while (temp != nullptr) {
-            if (temp->id == id) {
-                return temp;
+    else{
+        Node<T>* actual = root;
+        Node<T>* father = NULL;
+
+        while(actual != NULL && data != actual->data){
+            father = actual;
+            if(actual->getData() > data){
+                actual = actual->getChild(IZQ);
             }
-            temp = temp->Siguiente;
-        }
-        return nullptr;
-    }
-template<class T>
-    bool Tree<T>::isFirstborn(int childId, int& fatherId) {
-        Persona* child = findPersonById(childId);
-        if (child == nullptr) {
-            return false;
+            else{
+                actual = actual->getChild(DER);
+            }
         }
 
-        fatherId = child->id_father;
-        if (fatherId == 0) {
-            return false;
+        if(actual != NULL) return;
+        
+        if(father->getData()> data){
+            father->setLeft = new Node(data, NULL, NULL);
         }
-
-        Persona* temp = head;
-        while (temp != nullptr) {
-            if (temp->id_father == fatherId && temp->id != childId) {
-                if (temp->age > child->age) {
-                    return false;
-                }
-            }
-            temp = temp->Siguiente;
+        else{
+            father->setRight = new Node(data, NULL, NULL);
         }
-        return true;
     }
+}

@@ -10,7 +10,7 @@ private:
     Node<T>* right = nullptr;
     int autoHeight ();
 public:
-    Node(T,Node<T>*,Node<T>*);
+        Node(T,Node<T>*,Node<T>*);
         ~Node();
         void setData(T);
         T getData();
