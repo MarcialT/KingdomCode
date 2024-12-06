@@ -1,6 +1,7 @@
 #ifndef PEOPLE_H
 #define PEOPLE_H
 #include<string>
+#pragma once
 using namespace std;
 class Persona {
     public:

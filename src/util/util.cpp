@@ -2,7 +2,7 @@
 #include<fstream>
 #include"sstream"
 #include<string>
-#include"util.h"
+#include"./util.h"
 #include"../tree/tree.h"
 #include"../people/people.h"
 using namespace std;
@@ -19,7 +19,7 @@ void Menu() {
         cin >> option;
         switch (option) {
             case 1:
-                leerCSV("../bin/KingDom.csv");
+               
                 cout << "Se han convertido los datos en un arbol binario" << endl;
                 break;
 
@@ -27,7 +27,7 @@ void Menu() {
                 int parentId;
                 cout << "Ingrese el ID del padre: ";
                 cin >> parentId;
-                findChildrenById("../bin/KingDom.csv", parentId);
+                
                 cout << "La linea de sucesion actual es:\n" << endl;
                 break;
 

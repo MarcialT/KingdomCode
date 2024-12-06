@@ -1,7 +1,7 @@
 #ifndef TREE_H
 #define TREE_H
-#include"../people/people.cpp"
-#include"../node/node.cpp"
+#include"../people/people.h"
+#include"../node/node.h"
 template<class T>
 class Tree {
     private:

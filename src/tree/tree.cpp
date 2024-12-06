@@ -2,6 +2,7 @@
 #include<fstream>
 #include<string>
 #include"./tree.h"
+enum ramas{IZQ,DER};
 using namespace std;
 
 template<class T>

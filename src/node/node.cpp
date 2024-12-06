@@ -1,5 +1,6 @@
 #include<iostream>
 #include"./node.h"
+#pragma once
 using namespace std;
 
 template<class T>
@@ -67,6 +68,6 @@ Node<T>* Node<T>::getChildren(int children){
 
 template<class T>
 bool Node<T>::isLeaf(){
-    return right==NULL && left==NULL;
+    return this->right==NULL && this->left==NULL;
 }
 
