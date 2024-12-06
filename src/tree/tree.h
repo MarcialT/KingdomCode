@@ -9,6 +9,7 @@ class Tree {
     void showSuccession(Persona* node);
     Persona* assignNewKing(Persona* currentKing);
     Persona* findPersonById(Persona* node, int id);
+    void mostrarHerederos(Persona* node); // Declaración de la función auxiliar
     public:
     Tree();
     void readCSV();

@@ -16,23 +16,41 @@ template<class T>
 void Tree<T>::showSuccession(Persona* node) {
     if (node == nullptr) return;
 
+    // Mostrar el rey actual
     if (!node->is_dead && node->is_king) {
-        cout << "Rey actual: " << node->first_name << " " << node->last_name << endl;
+        cout << "Rey actual: " << node->id << " " << node->first_name << " " << node->last_name << ", Edad: " << node->age << endl;
     }
 
-    if (node->primogenito != nullptr && !node->primogenito->is_dead) {
-        cout << "Primogenito: " << node->primogenito->first_name << " " << node->primogenito->last_name << endl;
-        showSuccession(node->primogenito); // Llamada recursiva para el primogénito
+    // Función auxiliar para mostrar los herederos
+    mostrarHerederos(node);
+}
+
+template<class T>
+void Tree<T>::mostrarHerederos(Persona* node) {
+    if (node == nullptr) return;
+
+    // Mostrar el primogénito si está vivo y es menor de 70 años
+    if (node->primogenito != nullptr && !node->primogenito->is_dead && node->primogenito->age < 70) {
+        cout << "Heredero: " << node->primogenito->id << " " << node->primogenito->first_name << " " << node->primogenito->last_name << ", Edad: " << node->primogenito->age << endl;
+        mostrarHerederos(node->primogenito); // Llamada recursiva para el primogénito
     }
 
-    if (node->primogenito != nullptr && node->primogenito->primogenito != nullptr && !node->primogenito->primogenito->is_dead) {
-        cout << "Primogenito del primogenito: " << node->primogenito->primogenito->first_name << " " << node->primogenito->primogenito->last_name << endl;
-        showSuccession(node->primogenito->primogenito); // Llamada recursiva para el primogénito del primogénito
+    // Mostrar el hijo del primogénito si está vivo y es menor de 70 años
+    if (node->primogenito != nullptr && node->primogenito->primogenito != nullptr && !node->primogenito->primogenito->is_dead && node->primogenito->primogenito->age < 70) {
+        cout << "Heredero: " << node->primogenito->primogenito->id << " " << node->primogenito->primogenito->first_name << " " << node->primogenito->primogenito->last_name << ", Edad: " << node->primogenito->primogenito->age << endl;
+        mostrarHerederos(node->primogenito->primogenito); // Llamada recursiva para el hijo del primogénito
     }
 
-    if (node->segundoHijo != nullptr && !node->segundoHijo->is_dead) {
-        cout << "Segundo hijo: " << node->segundoHijo->first_name << " " << node->segundoHijo->last_name << endl;
-        showSuccession(node->segundoHijo);
+    // Mostrar el primer hijo del segundo hijo del rey actual si está vivo y es menor de 70 años
+    if (node->segundoHijo != nullptr && node->segundoHijo->primogenito != nullptr && !node->segundoHijo->primogenito->is_dead && node->segundoHijo->primogenito->age < 70) {
+        cout << "Heredero: " << node->segundoHijo->primogenito->id << " " << node->segundoHijo->primogenito->first_name << " " << node->segundoHijo->primogenito->last_name << ", Edad: " << node->segundoHijo->primogenito->age << endl;
+        mostrarHerederos(node->segundoHijo->primogenito); // Llamada recursiva para el primer hijo del segundo hijo
+    }
+
+    // Mostrar el segundo hijo si está vivo y es menor de 70 años
+    if (node->segundoHijo != nullptr && !node->segundoHijo->is_dead && node->segundoHijo->age < 70) {
+        cout << "Heredero: " << node->segundoHijo->id << " " << node->segundoHijo->first_name << " " << node->segundoHijo->last_name << ", Edad: " << node->segundoHijo->age << endl;
+        mostrarHerederos(node->segundoHijo); // Llamada recursiva para el segundo hijo
     }
 }
 template<class T>
@@ -76,7 +94,7 @@ void Tree<T>::readCSV() {
     ifstream file("../bin/KingDom.csv");
     string line;
 
-    getline(file,line);
+    getline(file, line); // Leer la línea de encabezado
     while (getline(file, line)) {
         stringstream ss(line);
         string id_str, name, last_name, gender_str, age_str, id_father_str, is_dead_str, was_king_str, is_king_str;
@@ -107,6 +125,7 @@ void Tree<T>::readCSV() {
         }
     }
 }
+
 template<class T>
 void Tree<T>::showSuccession() {
     showSuccession(root);
