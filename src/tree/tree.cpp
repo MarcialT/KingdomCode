@@ -149,10 +149,7 @@ void Tree<T>::updatePersonData(int id, const string& new_name, const string& new
         person->age = new_age;
     }
 }
-template<class T>
-Tree<T>::~Tree() {
-    // Se debe liberar la memoria del árbol, si se desea
-}
+
 template<class T>
 void Tree<T>::insert(Persona* node, Persona* new_person) {
     if (node == nullptr) {
