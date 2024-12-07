@@ -4,5 +4,5 @@
 
 using namespace std;
 
-void Menu(int option);
+void Menu();
 #endif 
